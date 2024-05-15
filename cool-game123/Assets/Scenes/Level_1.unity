@@ -4754,7 +4754,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.337, y: 0, z: 0}
-  m_LocalScale: {x: 1.3795313, y: 1, z: 1}
+  m_LocalScale: {x: 1.8623673, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 526392292}
@@ -4937,6 +4937,7 @@ GameObject:
   - component: {fileID: 526392294}
   - component: {fileID: 526392288}
   - component: {fileID: 526392293}
+  - component: {fileID: 526392295}
   m_Layer: 3
   m_Name: Skeleton
   m_TagString: Enemy
@@ -5084,6 +5085,20 @@ MonoBehaviour:
   inrange: 0
   hotZone: {fileID: 1168765565}
   triggerArea: {fileID: 367519027}
+--- !u!114 &526392295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526392287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2f1bf6298d032428dd235ba4d2051d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &577920156
 GameObject:
   m_ObjectHideFlags: 0
@@ -5968,6 +5983,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1168765567}
+  - component: {fileID: 1168765568}
   - component: {fileID: 1168765566}
   m_Layer: 3
   m_Name: hotZone
@@ -6005,7 +6021,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6031,11 +6047,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.177, y: 0, z: 0}
-  m_LocalScale: {x: 2.1375, y: 1, z: 1}
+  m_LocalScale: {x: 2.3619375, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 526392292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1168765568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168765565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36377e9f90603e94d9b40a487c9bb9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1233485015
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,8 +6562,8 @@ Transform:
   m_GameObject: {fileID: 1621851052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.375, y: 0.078, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.442, y: 0.078, z: 0.001}
+  m_LocalScale: {x: 0.86248, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1946352786}
@@ -6783,6 +6811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1946352786}
   - component: {fileID: 1946352788}
+  - component: {fileID: 1946352789}
   - component: {fileID: 1946352785}
   - component: {fileID: 1946352784}
   - component: {fileID: 1946352783}
@@ -6926,12 +6955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d0cbf2bb9104e68ae3230e0f78ff03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 1621851052}
-  radius: 1.1
-  enemies:
-    serializedVersion: 2
-    m_Bits: 8
-  damage: 10
   charSpeed: 6.5
 --- !u!114 &1946352785
 MonoBehaviour:
@@ -7002,6 +7025,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+--- !u!114 &1946352789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946352780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b8530fe43064a6da660c5a3b4f1ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1946352781}
+  attackPoint: {fileID: 1621851053}
+  attackRange: 1.27
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  attackDamage: 20
 --- !u!1 &2020992274
 GameObject:
   m_ObjectHideFlags: 0

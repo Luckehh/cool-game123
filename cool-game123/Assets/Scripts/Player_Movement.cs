@@ -9,9 +9,6 @@ public class Player_Movement : MonoBehaviour
     private Animator anim;
     private bool grounded;
 
-    public GameObject attackPoint;
-    public float radius;
-
     [SerializeField] public float charSpeed;
 
     private void Awake()
