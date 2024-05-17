@@ -1,38 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    public Animator anim;
+
     public int maxHealth = 100;
     public int currentHealth;
 
-    // Start is called before the first frame update
-    void Start()    
+
+    void Start()
     {
         currentHealth = maxHealth;
     }
 
-    // Function to take damage
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
-        // Check if player is dead
+        anim.SetTrigger("Hurt");
+
         if (currentHealth <= 0)
         {
+            GetComponent<Rigidbody2D>().isKinematic = true;
             Die();
         }
     }
 
-    // Function to heal the player
-    public void Heal(int amount)
+    public void Die()
     {
-        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-    }
+        Debug.Log("Player Died");
 
-    // Function to handle player death
-    void Die()
-    {
-        // You can add death-related logic here, such as disabling player controls, triggering an animation, etc.
-        Debug.Log("Player died!");
+        anim.SetBool("isDead", true);
+
+        this.enabled = false;
+        GetComponent<Player_Movement>().enabled = false;
+        GetComponent<Player_Combat>().enabled = false;
     }
 }

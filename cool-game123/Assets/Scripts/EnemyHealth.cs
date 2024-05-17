@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    public Animator anim;
      
     public int maxHealth = 100;
     public int currentHealth;
@@ -17,8 +18,11 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
+        anim.SetTrigger("Hurt");
+
         if (currentHealth <= 0)
         {
+            GetComponent<Rigidbody2D>().isKinematic = true;
             Die();
         }
     }
@@ -26,6 +30,12 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy murdered");
+
+        anim.SetBool("isDead", true);
+
+        this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Enemy_Behaviour>().enabled = false;
     }
 
 }
